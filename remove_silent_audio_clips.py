@@ -2,6 +2,7 @@ import librosa
 import os
 from datetime import datetime
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 
@@ -39,17 +40,17 @@ def rename_file(audio_file_path):
 
 
 
-def show_graph(audio_data, sampling_rate):
+def show_graph(audio_data, sample_rate):
     """
     音声データを波形グラフとして表示する関数
 
     Args:
         audio_data (numpy.ndarray): 音声データ
-        sampling_rate (int): サンプリングレート
+        sample_rate (int): サンプリングレート
     """
 
     plt.figure(figsize=(14, 5))
-    librosa.display.waveshow(audio_data, sr=sampling_rate)
+    librosa.display.waveshow(audio_data, sr=sample_rate)
     plt.title('Audio waveform')
     plt.xlabel('Time (s)')
     plt.ylabel('Amplitude')
@@ -59,21 +60,21 @@ def show_graph(audio_data, sampling_rate):
 
 def main():
     # 音声ファイルのパスを指定
-    file = '/Users/Tsubasa/Desktop/python/sample_audio_files/voiceover_20240817_2009.wav' 
+    file = '/Users/Tsubasa/Desktop/librosa/sample_audio_files/voiceover_20240817_1910.wav'
 
     # librosaを使って音声ファイルを読み込む
-    audio_data, sampling_rate = librosa.load(file)
-    print(f'audio_data shape: {audio_data.shape}, sampling_rate: {sampling_rate}')
+    audio_data, sample_rate = librosa.load(file)
+    print(f'audio_data shape: {audio_data.shape}, sample_rate: {sample_rate}')
 
     # 読み込んだデータの情報を確認
-    duration = librosa.get_duration(y=audio_data, sr=sampling_rate)
+    duration = librosa.get_duration(y=audio_data, sr=sample_rate)
     print(f'再生時間: {round(duration)}秒')
 
     # audioファイルをリネームする
-    rename_file(file)
+    # rename_file(file)
 
     # 音声データを可視化
-    show_graph(audio_data, sampling_rate)
+    show_graph(audio_data, sample_rate)
 
 if __name__ == "__main__":
     main()
