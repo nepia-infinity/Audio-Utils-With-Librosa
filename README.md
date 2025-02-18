@@ -7,3 +7,6 @@
 # Final Cut Pro 11　で音声のテキスト化に対応したので不要かも....。
 
 <img width="1274" alt="image" src="https://github.com/user-attachments/assets/5f7f51c0-0d8c-438b-811b-0f3932bf5e72">
+
+# 関連リポジトリ
+- [動画から音声データにリッピングするスクリプト](https://github.com/nepia-infinity/Call-Whisper-API)
